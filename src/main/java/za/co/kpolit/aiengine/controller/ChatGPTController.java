@@ -50,29 +50,4 @@ public class ChatGPTController {
         logger.info("Calling chatWithAI with " + prompt);
         return chatGPTService.chatWithAI(prompt);
     }
-    /*public ResponseEntity<String> chatWithAI(@RequestBody Map<String, String> request) {
-        String message = request.get("message");
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.setBearerAuth(openAiApiKey);
-        headers.setContentType(MediaType.APPLICATION_JSON);
-
-        String body = """
-    {
-      "model": "gpt-4o-mini",
-      "messages": [
-        {"role": "system", "content": "You are an AI tutor helping students learn."},
-        {"role": "user", "content": "%s"}
-      ]
-    }
-    """.formatted(message);
-
-        HttpEntity<String> entity = new HttpEntity<>(body, headers);
-        ResponseEntity<String> response = restTemplate.postForEntity(
-                "https://api.openai.com/v1/chat/completions", entity, String.class
-        );
-
-        return ResponseEntity.ok(response.getBody());
-    }*/
-
 }
