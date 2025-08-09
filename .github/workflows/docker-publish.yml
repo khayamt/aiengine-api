@@ -1,4 +1,4 @@
-name: Build and Publish Auth-Service Image
+name: Build and Publish AIengine-API Image
 
 on:
   push:
@@ -55,4 +55,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/auth-service:latest
+          tags: ghcr.io/${{ github.repository_owner }}/aiengine-api:latest
