@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: aiengine
+  config:
+    import: "optional:classpath:application-secrets.yml"
+server:
+  port: 9102
+  servlet:
+    context-path: /aiengine
+
