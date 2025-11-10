@@ -21,7 +21,7 @@ public class ChatGPTService {
     private String openaiApiKey;
     @Value("${openai.api.model}")
     private String model;
-    @Value("${openai.hrbot.system-prompt}")
+    @Value("${hrbot.system-prompt}")
     private String systemPrompt;
 
     private final ObjectMapper mapper = new ObjectMapper();
