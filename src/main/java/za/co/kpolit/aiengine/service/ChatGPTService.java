@@ -21,8 +21,16 @@ public class ChatGPTService {
     private String openaiApiKey;
     @Value("${openai.api.model}")
     private String model;
+    @Value("${openai.hrbot.system-prompt}")
+    private String systemPrompt;
 
     private final ObjectMapper mapper = new ObjectMapper();
+    private final DocumentLoader documentLoader;
+
+    public ChatGPTService(DocumentLoader documentLoader)
+    {
+        this.documentLoader = documentLoader;
+    }
 
     @PostConstruct
     public void init(){
@@ -104,6 +112,32 @@ public class ChatGPTService {
                         new ChatMessage("system", "You are an AI tutor helping students learn."),
                         new ChatMessage("user", prompt)
                 ))
+                .build();
+
+        ChatCompletionResult result = openAiService.createChatCompletion(request);
+        return result.getChoices().get(0).getMessage().getContent();
+    }
+    public String askHrBot(String question) {
+        String hrDocs = documentLoader.loadAllDocuments();
+        String userPrompt = String.format("""
+            HR DOCUMENTS:
+            %s
+
+            Question: %s
+            """, hrDocs, question);
+
+        if (openAiService == null) {
+            return "// ERROR: OpenAI API key not configured.";
+        }
+
+        ChatCompletionRequest request = ChatCompletionRequest.builder()
+                .model(model)
+                .messages(List.of(
+                        new ChatMessage("system", systemPrompt),
+                        new ChatMessage("user", question)
+                ))
+                .maxTokens(500)
+                .temperature(0.3)
                 .build();
 
         ChatCompletionResult result = openAiService.createChatCompletion(request);
