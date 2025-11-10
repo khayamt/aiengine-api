@@ -18,8 +18,10 @@ public class DocumentLoader {
     private final Tika tika = new Tika();
     private final List<String> documentPaths;
 
-    public DocumentLoader(@Value("${hrbot.docs}") List<String> documentPaths) {
-        this.documentPaths = documentPaths;
+   // public DocumentLoader(@Value("${hrbot.docs}") List<String> documentPaths) {
+   public DocumentLoader(List<String> documentPaths) {
+        //this.documentPaths = documentPaths;
+        this.documentPaths = List.of("/app/secure/hr/hr_policy.pdf", "/app/secure/hr/leave_policy.pdf");
     }
 
     public String loadAllDocuments() {
