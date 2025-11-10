@@ -2,7 +2,7 @@ spring:
   application:
     name: aiengine
   config:
-    import: "optional:classpath:application-secrets.yml"
+    import: "optional:file:/app/config/application-secrets.yml"
 server:
   port: 9102
   servlet:
