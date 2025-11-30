@@ -45,7 +45,7 @@ public class ChatGPTController {
     @PostMapping("/api/chat")
     public String chatWithAI(@RequestBody String prompt)
     {
-        logger.info("Calling chatWithAI with " + prompt);
+        logger.info("Calling chatWithAI with .." + prompt);
         return chatGPTService.chatWithAI(prompt);
     }
 
