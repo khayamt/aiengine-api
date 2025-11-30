@@ -52,7 +52,7 @@ public class ChatGPTController {
     @PostMapping("/api/askHrBot")
     public String askHrBot(@RequestBody String prompt)
     {
-        logger.info("Calling askHrBot with " + prompt);
+        logger.info("Calling askHrBot with .. " + prompt);
         return chatGPTService.askHrBot(prompt);
     }
 }
