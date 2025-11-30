@@ -21,3 +21,10 @@ logging:
     za.co.kpolit.aiengine: DEBUG
   pattern:
     console: '{"aiengine - timestamp": "%d{yyyy-MM-dd HH:mm:ss}", "level": "%-5level", "logger": "%logger{36}", "message": "%msg"}%n'
+
+springdoc:
+  swagger-ui:
+    use-root-path: true
+    path: /swagger-ui.html
+    url: v3/api-docs
+    config-url: v3/api-docs/swagger-config
