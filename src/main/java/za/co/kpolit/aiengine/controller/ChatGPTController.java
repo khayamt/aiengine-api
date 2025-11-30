@@ -17,8 +17,6 @@ public class ChatGPTController {
 
     @Autowired
     private ChatGPTService chatGPTService;
-
-   // @RequestMapping("/api/codegen")
     @PostMapping("/api/codegen")
     public String generateCode(@RequestBody String prompt) {
         logger.info("Calling generateCode with " + prompt);
