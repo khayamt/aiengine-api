@@ -8,6 +8,13 @@ server:
   servlet:
     context-path: /aiengine
 
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka:8761/eureka/
+
 logging:
   file:
     name:  # Leave blank so logs go to stdout
@@ -15,4 +22,4 @@ logging:
     root: INFO
     za.co.kpolit.aiengine: DEBUG
   pattern:
-    console: '{"timestamp": "%d{yyyy-MM-dd HH:mm:ss}", "level": "%-5level", "logger": "%logger{36}", "message": "%msg"}%n'
+    console: '{"aiengine - timestamp": "%d{yyyy-MM-dd HH:mm:ss}", "level": "%-5level", "logger": "%logger{36}", "message": "%msg"}%n'
