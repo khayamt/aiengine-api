@@ -5,8 +5,6 @@ spring:
     import: "optional:file:/app/config/aiengine-secrets.yml"
 server:
   port: 9102
-  servlet:
-    context-path: /aiengine
 
 eureka:
   client:
